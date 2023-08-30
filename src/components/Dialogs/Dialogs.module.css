@@ -22,3 +22,8 @@
 .messages.message {
 
 }
+
+.dialogsItems img {
+    padding-right: 5px;
+    width: 30px;
+}
