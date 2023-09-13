@@ -9,6 +9,7 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import {updateNewPostText} from "./redux/store";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 
 function App(props) {
@@ -20,12 +21,10 @@ function App(props) {
                 <div className='app-wrapper-content'>
                     <Routes>
                         <Route path="/profile" element={<Profile
-                            profilePage={props.state.profilePage}
-                            dispatch={props.dispatch}/>
+                            store={props.store}/>
                         }/>
-                        <Route path="/dialogs/*" element={<Dialogs
-                            store={props.store}
-                            state={props.state.dialogsPage}/>}/>
+                        <Route path="/dialogs/*" element={<DialogsContainer
+                            store={props.store}/>}/>
                         <Route path="/news" element={<News/>}/>
                         <Route path="/music" element={<Music/>}/>
                         <Route path="/settings" element={<Settings/>}/>
