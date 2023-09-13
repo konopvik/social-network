@@ -14,8 +14,8 @@ const Message = (props) => {
 
     return (
         <div className={s.message}>
-            <textarea ref={newMessageToSend}>{props.message}</textarea>
-            <button onClick={ sendMessage }>Send</button>
+            <div ref={newMessageToSend}>{props.message}</div>
+
         </div>
 
     )
