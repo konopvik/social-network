@@ -1,42 +1,16 @@
 import React from "react";
 import styles from "./Users.module.css";
+import axios from "axios";
+import userPhoto from "../../assets/images/avatar-icon.jpg"
 
 const Users = (props) => {
 
     if(props.users.length === 0) {
-        props.setUsers([{
-            id: 1,
-            photoUrl: 'https://static.vecteezy.com/system/resources/previews/008/442/086/non_2x/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg',
-            followed: false,
-            fullName: 'Viktor',
-            status: 'Bo$$',
-            location: {city: 'Praha', country: 'CZ'}
-        },
-            {
-                id: 2,
-                photoUrl: 'https://static.vecteezy.com/system/resources/previews/008/442/086/non_2x/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg',
-                followed: false,
-                fullName: 'Oleh',
-                status: 'Bo$$',
-                location: {city: 'Jihlava', country: 'CZ'}
-            },
-            {
-                id: 3,
-                photoUrl: 'https://static.vecteezy.com/system/resources/previews/008/442/086/non_2x/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg',
-                followed: true,
-                fullName: 'Max',
-                status: 'Bo$$',
-                location: {city: 'Dnipro', country: 'Ukraine'}
-            },
-            {
-                id: 4,
-                photoUrl: 'https://static.vecteezy.com/system/resources/previews/008/442/086/non_2x/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg',
-                followed: true,
-                fullName: 'Dmitry',
-                status: 'Bo$$',
-                location: {city: 'Minsk', country: 'Belarus'}
-            },
-        ])
+
+        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+            debugger;
+            props.setUsers(response.data.items)
+        })
     }
 
     return <div>
@@ -44,7 +18,7 @@ const Users = (props) => {
             props.users.map(u => <div key={u.id}>
                 <span>
                     <div>
-                        <img src={u.photoUrl} className={styles.userPhoto}/>
+                        <img src={u.photos.small != null ? u.photos.small : userPhoto} className={styles.userPhoto}/>
                     </div>
                     <div>
                         {u.followed
@@ -59,11 +33,11 @@ const Users = (props) => {
                 </span>
                 <span>
                     <span>
-                        <div>{u.fullName}</div>
+                        <div>{u.name}</div>
                         <div>{u.status}</div></span>
                     <span>
-                        <div>{u.location.country}</div>
-                        <div>{u.location.city}</div>
+                        <div>{'u.location.country'}</div>
+                        <div>{'u.location.city'}</div>
                     </span>
                 </span>
             </div>)
