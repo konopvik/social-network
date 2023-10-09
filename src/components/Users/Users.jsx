@@ -4,25 +4,13 @@ import userPhoto from "../../assets/images/avatar-icon.jpg";
 import {NavLink, Route, Routes} from "react-router-dom";
 import Profile from "../Profile/Profile";
 import {usersAPI} from "../../api/api";
+import {pagination} from "../../redux/pagination";
 
 let Users = (props) => {
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-
-    let pages = [];
-
-    for (let i = 1; i <= pagesCount; i++) {
-        pages.push(i);
-    }
-
-    let curP = props.currentPage;
-    let curPF = curP - 5 < 0 ? 0 : curP - 5;
-    let curPL = curP + 5;
-    let slicedPages = pages.slice(curPF, curPL);
-
     return (
         <div>
             <div>
-                {slicedPages.map((p) => {
+                {pagination(props.currentPage, props.totalUsersCount, props.pageSize).map((p) => {
                     return (
                         <span
                             className={props.currentPage === p ? styles.selectedPage : ""}
