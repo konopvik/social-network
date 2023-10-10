@@ -21,11 +21,11 @@ export const usersAPI = {
     getProfile(userId = 2) {
         return instance.get(`profile/` + userId).then(response => response.data)
     },
-    follow(id) {
-        return instance.post(`follow/${id}`).then(response => response.data)
+    follow(userId) {
+        return instance.post(`follow/${userId}`).then(response => response.data)
     },
-    unfollow(id) {
-        return instance.delete(`follow/${id}`).then(response => response.data)
+    unfollow(userId) {
+        return instance.delete(`follow/${userId}`).then(response => response.data)
     }
 
 }
