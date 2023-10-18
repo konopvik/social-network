@@ -43,6 +43,9 @@ export const profileAPI = {
 export const authAPI = {
     me() {
         return instance.get(`auth/me`).then(response => response.data)
+    },
+    login() {
+        return instance.get(`auth/login`).then(response => response.data)
     }
 }
 
