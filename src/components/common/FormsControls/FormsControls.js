@@ -1,24 +1,24 @@
 import React from "react";
-import styles from "./FormsControls.module.css"
+import styles from "./FormsControls.module.css";
 
 const FormControl = ({input, meta, child, ...props}) => {
-    const hasError = meta.touched && meta.error
+    const hasError = meta.touched && meta.error;
     return (
         <div className={styles.formControl + " " + (hasError ? styles.error : "")}>
             <div>
                 {props.children}
             </div>
-            {hasError && <span>{meta.error}</span>}
+            { hasError && <span>{meta.error}</span> }
         </div>
     )
 }
 
 export const Textarea = (props) => {
     const {input, meta, child, ...restProps} = props;
-    return <FormControl {...props}><textarea {...input} {...restProps}></textarea></FormControl>
+    return <FormControl {...props}><textarea {...input} {...restProps} /></FormControl>
 }
 
 export const Input = (props) => {
     const {input, meta, child, ...restProps} = props;
-    return <FormControl {...props}><input {...input} {...restProps}></input></FormControl>
+    return <FormControl {...props}><input {...input} {...restProps} /></FormControl>
 }

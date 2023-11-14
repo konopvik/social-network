@@ -1,26 +1,25 @@
-import React from "react";
+import React from 'react';
 import s from './ProfileInfo.module.css';
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus"
 
 const ProfileInfo = (props) => {
     if (!props.profile) {
-        return <Preloader/>
+        return <Preloader />
     }
 
     return (
         <div>
-            {/*<div>*/}
-            {/*    <img className={s.contentImg}*/}
-            {/*         src='https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg'/>*/}
-            {/*</div>*/}
+          {/*  <div>
+                <img
+                    src='https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350'/>
+            </div>*/}
             <div className={s.descriptionBlock}>
-                <img src={props.profile.photos.large}/>
-                <br/>
+                <img src={props.profile.photos.large} />
                 <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
             </div>
         </div>
     )
 }
 
-export default ProfileInfo
+export default ProfileInfo;
