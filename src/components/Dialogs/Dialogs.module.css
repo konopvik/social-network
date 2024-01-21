@@ -5,25 +5,18 @@
 
 .dialogsItems {
     padding: 10px;
+    color: white;
 }
 
 .dialogsItems .active {
     color: gold;
 }
 
-.dialogsItems .dialog {
-
-}
-
 .messages {
     padding: 10px;
 }
 
-.messages.message {
-
+.messages .message {
+    color: white;
 }
 
-.dialogsItems img {
-    padding-right: 5px;
-    width: 30px;
-}
