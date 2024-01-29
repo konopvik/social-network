@@ -1,7 +1,15 @@
 .descriptionBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     padding: 10px;
 }
 
 .mainPhoto {
+    float: left;
     max-width: 200px;
+}
+
+.contact {
+    padding-left: 10px;
 }
